@@ -23,7 +23,7 @@ This project demonstrates **basic Java programming concepts**, including:
 - **Add Task:** Users can enter a new task to be added to the list.
 - **View Tasks:** Displays all current tasks in the list.
 - **Remove Task:** Users can delete a task by specifying its number.
-- **Save / Import tasks** Users can save their current tasks to a list file and load them later.
+- **Save / Import tasks:** Users can save their current tasks to a list file and load them later.
 - **Exit Program:** Safely exits the application.
 
 ---
