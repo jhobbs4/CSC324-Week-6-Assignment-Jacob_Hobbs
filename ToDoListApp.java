@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.*;
 
 /**
  * A simple To-Do List application that allows users to:
@@ -7,7 +8,9 @@ import java.util.Scanner;
  * 2. View tasks
  * 3. Remove tasks
  * 4. Exit the program
- *
+ * 5. Save tasks
+ * 6. Import tasks
+ *+
  * Uses an ArrayList to store tasks and Scanner for user input.
  */
 public class ToDoListApp {
@@ -25,7 +28,9 @@ public class ToDoListApp {
             System.out.println("1. Add Task");
             System.out.println("2. View Tasks");
             System.out.println("3. Remove Task");
-            System.out.println("4. Exit");
+            System.out.println("4. Save Tasks");
+            System.out.println("5. Import Tasks");
+            System.out.println("6. Exit");
             System.out.print("Enter choice: ");
 
             // Read user input (menu choice)
@@ -37,10 +42,12 @@ public class ToDoListApp {
                 case 1 -> addTask(scanner); // Call method to add a task
                 case 2 -> viewTasks(); // Call method to display tasks
                 case 3 -> removeTask(scanner); // Call method to remove a task
-                case 4 -> System.out.println("Exiting..."); // Exit message
+                case 4 -> saveTasks(); // Call method to save tasks to tasks.txt
+                case 5 -> importTasks(); // Call method to import tasks from tasks.txt
+                case 6 -> System.out.println("Exiting..."); // Exit message
                 default -> System.out.println("Invalid choice. Try again."); // Handle invalid input
             }
-        } while (choice != 4); // Loop until user selects option 4 (Exit)
+        } while (choice != 6); // Loop until user selects option 4 (Exit)
 
         scanner.close(); // Close scanner to prevent memory leaks
     }
@@ -90,4 +97,42 @@ public class ToDoListApp {
             System.out.println("Invalid task number."); // Handle invalid input
         }
     }
+
+    /**
+     * Method to import a list of tasks
+     */
+    private static void importTasks(){
+        try {
+            File file = new File("tasks.txt");
+            Scanner fileInput = new Scanner(file);
+            while (fileInput.hasNextLine()){
+                tasks.add(fileInput.nextLine());
+            }
+            System.out.println("Tasks imported.");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Method to save a list of tasks
+     */
+    private static void saveTasks(){
+        try {
+            if (tasks.isEmpty()) {
+                System.out.println("There are no tasks to save.");
+            } else {
+                PrintWriter tasksFile = new PrintWriter(new FileWriter("tasks.txt", false));
+                for (String task : tasks) {
+                    tasksFile.println(task);
+                }
+                tasksFile.flush();
+                System.out.println("Tasks saved.");
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return;
+    }
+
 }
