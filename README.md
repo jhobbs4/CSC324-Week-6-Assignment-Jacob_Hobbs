@@ -7,7 +7,8 @@ This is a simple **To-Do List application** built in **Java**. It allows users t
 ✅ **Add tasks**  
 ✅ **View tasks**  
 ✅ **Remove tasks**  
-✅ **Exit the application**  
+✅ **Save / Import tasks**
+✅ **Exit the application**
 
 This project demonstrates **basic Java programming concepts**, including:
 - **ArrayLists** for storing tasks
@@ -22,6 +23,7 @@ This project demonstrates **basic Java programming concepts**, including:
 - **Add Task:** Users can enter a new task to be added to the list.
 - **View Tasks:** Displays all current tasks in the list.
 - **Remove Task:** Users can delete a task by specifying its number.
+- **Save / Import tasks** Users can save their current tasks to a list file and load them later.
 - **Exit Program:** Safely exits the application.
 
 ---
@@ -31,3 +33,9 @@ This project demonstrates **basic Java programming concepts**, including:
 Ensure you have the following installed on your system:
 - **Java Development Kit (JDK)** (Version 8 or later)
 - A **Java IDE** (Eclipse, IntelliJ IDEA, or VS Code) or a terminal with Java installed
+
+---
+## **Usage of New Features**
+### **Designed by Jacob Hobbs**
+- **Saving:** Type 4 when prompted to save all current tasks to a list file
+- **Loading:** Type 5 when prompted to load all tasks in the list file to your current tasks
